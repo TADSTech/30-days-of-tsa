@@ -4,3 +4,4 @@ plotly
 matplotlib
 seaborn
 nbformat>=4.20
+yfinance

@@ -9,6 +9,7 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 ## weekly projects
 
 - [Day 1: Time Series Fundamentals](./day1/)
+- [Day 2: Time Series Data from APIs](./day2/)
 
 ## Project Details
 
@@ -30,6 +31,25 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Created reusable visualization pipeline
 - Documented insights for practical applications
 
+### Day 2: Time Series Data from APIs
+
+**Status**: ✓ Complete
+
+**Objective**: Fetch and analyze financial time series data from Yahoo Finance API
+
+**Key Deliverables**:
+- Integration with yfinance API for real-time financial data
+- Gold (GLD) price data extraction and cleaning
+- 10-year historical price analysis
+- Interactive financial visualization with proper scaling
+- Comprehensive data cleaning pipeline
+
+**Outcomes**:
+- Successfully fetched and processed 10 years of gold price data
+- Implemented robust data cleaning for API-sourced datasets
+- Created publication-quality visualizations for financial time series
+- Demonstrated practical API integration in time series analysis
+
 ## Goals
 
 - Understand the basics of Time Series data
@@ -49,4 +69,4 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 ## Progress
 
-Current Day: 1/30
+Current Day: 2/30
