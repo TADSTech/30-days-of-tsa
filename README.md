@@ -10,6 +10,7 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 - [Day 1: Time Series Fundamentals](./day1/)
 - [Day 2: Time Series Data from APIs](./day2/)
+- [Day 3: Visualizing Time Series Data](./day3/)
 
 ## Project Details
 
@@ -50,6 +51,25 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Created publication-quality visualizations for financial time series
 - Demonstrated practical API integration in time series analysis
 
+### Day 3: Visualizing Time Series Data
+
+**Status**: ✓ Complete
+
+**Objective**: Master advanced visualization techniques for time series data
+
+**Key Deliverables**:
+- Multiple time series visualization approaches (line plots, moving averages)
+- Rolling statistics analysis (30-day and 90-day moving averages)
+- Seasonal decomposition into trend, seasonal, and residual components
+- Interactive multi-panel visualizations
+- Volatility measurement and visualization
+
+**Outcomes**:
+- Successfully created comprehensive visualization toolkit
+- Demonstrated seasonal decomposition for pattern recognition
+- Implemented moving averages for trend identification
+- Created publication-quality interactive charts with Plotly
+
 ## Goals
 
 - Understand the basics of Time Series data
@@ -69,4 +89,4 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 ## Progress
 
-Current Day: 2/30
+Current Day: 3/30

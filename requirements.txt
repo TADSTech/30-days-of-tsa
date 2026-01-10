@@ -5,3 +5,6 @@ matplotlib
 seaborn
 nbformat>=4.20
 yfinance
+statsmodels
+scipy
+kaleido
