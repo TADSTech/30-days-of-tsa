@@ -1,0 +1,9 @@
+{
+    day: "4",
+    name: 'Stationarity Concepts',
+    description: 'Understanding stationarity, visual inspection methods, why it matters for forecasting. Mean, variance, and autocorrelation over time.',
+    dataset: 'Yahoo Finance Gold (GLD)',
+    datasetUrl: 'https://finance.yahoo.com/quote/GLD/',
+    githubUrl: 'https://github.com/tadstech/30-days-of-tsa/tree/main/day4',
+    status: 'completed'
+},

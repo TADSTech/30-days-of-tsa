@@ -70,6 +70,25 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Implemented moving averages for trend identification
 - Created publication-quality interactive charts with Plotly
 
+### Day 4: Stationarity Concepts
+
+**Status**: ✓ Complete
+
+**Objective**: Understand and test for stationarity in time series data
+
+**Key Deliverables**:
+- Educational explanation of weak stationarity (constant mean, variance, autocorrelation)
+- Visual comparison of stationary vs non-stationary synthetic data
+- Rolling statistics visualization for stationarity detection
+- Autocorrelation Function (ACF) analysis and interpretation
+- Foundation for data preprocessing before ARIMA modeling
+
+**Outcomes**:
+- Successfully demonstrated stationarity concepts with synthetic and real data
+- Identified gold prices as non-stationary with visual and statistical evidence
+- Provided practical tools for stationarity assessment
+- Established preprocessing requirements for forecasting models
+
 ## Goals
 
 - Understand the basics of Time Series data
@@ -89,4 +108,4 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 ## Progress
 
-Current Day: 3/30
+Current Day: 4/30
