@@ -89,6 +89,26 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Provided practical tools for stationarity assessment
 - Established preprocessing requirements for forecasting models
 
+### Day 5: ADF Test & Differencing
+
+**Status**: ✓ Complete
+
+**Objective**: Apply statistical testing and transformation techniques to achieve stationarity
+
+**Key Deliverables**:
+- Augmented Dickey-Fuller (ADF) test implementation for statistical hypothesis testing
+- ADF helper function for reproducible stationarity testing
+- First-order differencing transformation of gold prices
+- 2-panel visualization comparing original vs differenced data
+- Statistical interpretation of p-value changes
+
+**Outcomes**:
+- Successfully tested non-stationarity of original gold prices using ADF
+- Applied differencing to transform data into stationary form
+- Confirmed stationarity achievement with ADF test (p-value < 0.01)
+- Established ARIMA model readiness with d=1 parameter
+- Created reproducible pipeline for data preprocessing
+
 ## Goals
 
 - Understand the basics of Time Series data
@@ -108,4 +128,4 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 ## Progress
 
-Current Day: 4/30
+Current Day: 5/30
