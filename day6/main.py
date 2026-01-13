@@ -53,38 +53,46 @@ axes[1].set_ylabel('Partial Autocorrelation')
 plt.tight_layout()
 plt.show()
 
-# Analysis helper function
-def analyze_acf_pacf(acf_series, pacf_series, threshold=0.05):
-    """
-    Analyze ACF and PACF to identify significant lags
-    """
-    print("\n=== ACF & PACF Analysis ===")
-    
-    # Find significant ACF lags
-    acf_cutoff = np.where(np.abs(acf_series) < threshold)[0][0] if any(np.abs(acf_series) < threshold) else len(acf_series)
-    print(f"\nACF: Significant lags appear to be up to lag {acf_cutoff - 1}")
-    print(f"  Suggests MA order q ≈ {max(0, acf_cutoff - 1)}")
-    
-    # Find significant PACF lags
-    pacf_cutoff = np.where(np.abs(pacf_series) < threshold)[0][0] if any(np.abs(pacf_series) < threshold) else len(pacf_series)
-    print(f"\nPACF: Significant lags appear to be up to lag {pacf_cutoff - 1}")
-    print(f"  Suggests AR order p ≈ {max(0, pacf_cutoff - 1)}")
-    
-    print("\n=== Recommended ARIMA Models to Test ===")
-    print("1. ARIMA(1,1,1) - Common for financial data")
-    print("2. ARIMA(2,1,2) - If patterns persist beyond lag 1")
-    print("3. ARIMA(1,1,0) - If PACF shows clear AR pattern")
-    print("4. ARIMA(0,1,1) - If ACF shows clear MA pattern")
-    print("5. ARIMA(2,1,0) or ARIMA(0,1,2) - For stronger single-component models")
-    print("\nNote: d = 1 (first-order differencing confirmed in Day 5)")
-
-# Calculate approximate ACF and PACF for analysis
+# Autocorrelation Analysis for White Noise Detection
 from statsmodels.tsa.stattools import acf, pacf
+
+print("\n" + "="*60)
+print("AUTOCORRELATION ANALYSIS FINDINGS")
+print("="*60)
+
+# Calculate ACF and PACF
 acf_vals = acf(gold_diff_clean, nlags=40)
 pacf_vals = pacf(gold_diff_clean, nlags=40)
 
-# Analyze the results
-analyze_acf_pacf(acf_vals, pacf_vals)
+print(f"\nACF at lag 1: {acf_vals[1]:.4f}")
+print(f"PACF at lag 1: {pacf_vals[1]:.4f}")
 
-print("\n=== Analysis Complete ===")
-print("Next step: Fit multiple ARIMA models and compare using AIC/BIC criteria")
+# Check for significant correlations (threshold = 1.96/sqrt(n))
+threshold = 1.96 / np.sqrt(len(gold_diff_clean))
+significant_acf = sum(1 for val in acf_vals[1:11] if abs(val) > threshold)
+significant_pacf = sum(1 for val in pacf_vals[1:11] if abs(val) > threshold)
+
+print(f"\nSignificance threshold (95% CI): ±{threshold:.4f}")
+print(f"Significant ACF lags (first 10): {significant_acf}")
+print(f"Significant PACF lags (first 10): {significant_pacf}")
+
+if significant_acf <= 1 and significant_pacf <= 1:
+    print("\n✓ CONCLUSION: Differenced prices exhibit WHITE NOISE behavior")
+    print("  → No temporal dependencies detected")
+    print("  → Gold prices follow a RANDOM WALK (market efficient)")
+    print("  → This validates the Efficient Market Hypothesis")
+    print("\n✓ RECOMMENDED MODEL: ARIMA(0,1,0)")
+    print("  → p = 0: No autoregressive terms needed")
+    print("  → d = 1: One differencing applied")
+    print("  → q = 0: No moving average terms needed")
+    print("\n  This is a simple random walk model:")
+    print("  Next Price = Current Price + Random Shock")
+else:
+    print("\n✗ Some correlation detected")
+    print("  Consider ARIMA models with AR/MA terms")
+
+print("\n" + "="*60)
+print("KEY INSIGHT: White noise in price differences means past prices")
+print("cannot reliably predict future prices. This is expected for")
+print("efficient markets like gold commodities.")
+print("="*60)

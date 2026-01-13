@@ -103,14 +103,28 @@ Comprehensive analysis of Autocorrelation Function (ACF) and Partial Autocorrela
 | Both decay gradually | 1-2 | 1-2 | ARIMA(1-2,1,1-2) |
 | Both cut off early | 0-1 | 0-1 | ARIMA(0-1,1,0-1) |
 
-### Recommended Models to Test
+## Key Finding: White Noise Behavior Detected
 
-1. **ARIMA(1,1,1)** - Balanced AR and MA, common for financial data
-2. **ARIMA(2,1,2)** - More complex patterns, if significant lags persist
-3. **ARIMA(1,1,0)** - Pure AR process, if PACF shows clear pattern
-4. **ARIMA(0,1,1)** - Pure MA process, if ACF shows clear pattern
-5. **ARIMA(2,1,0)** - Stronger AR, if PACF shows 2+ significant lags
-6. **ARIMA(0,1,2)** - Stronger MA, if ACF shows 2+ significant lags
+### Analysis Result
+
+The ACF and PACF plots reveal **virtually no significant correlations** at any lag beyond lag 0.
+
+### Interpretation
+
+**The differenced gold prices are WHITE NOISE** — random fluctuations with no temporal dependencies.
+
+### Recommended Model: ARIMA(0,1,0)
+
+This is optimal for your data:
+- **p = 0** - No AR terms needed
+- **d = 1** - First-order differencing
+- **q = 0** - No MA terms needed
+
+### Why This Matters
+
+1. **Validates Market Efficiency** - Random walk as theory predicts
+2. **Simplifies Modeling** - No complex structures needed
+3. **Informs Strategy** - Past patterns won't predict future prices
 
 ## Technical Implementation
 
@@ -163,12 +177,14 @@ Comprehensive analysis of Autocorrelation Function (ACF) and Partial Autocorrela
 
 ## Next Steps
 
-1. **Model Fitting**: Implement grid search across ARIMA(p,1,q) combinations
-2. **Comparison**: Use AIC/BIC to rank candidate models
-3. **Diagnostics**: Analyze residuals for white noise properties
-4. **Forecasting**: Generate price predictions with confidence intervals
-5. **Validation**: Test on independent test dataset
+1. **Confirm with Ljung-Box Test**: Formally verify white noise hypothesis
+2. **Understand Implications**: This is an important finding about market efficiency
+3. **Simple Forecasting**: Use ARIMA(0,1,0) for baseline predictions
+4. **Explore Alternatives**: Consider seasonal components or exogenous variables if needed
+5. **Day 7**: Implement ARIMA(0,1,0) fitting and forecasting
 
 ## Conclusion
 
-ACF and PACF correlograms are indispensable tools for identifying ARIMA model parameters. By correctly interpreting these plots, we can systematically narrow down the search space for optimal (p,q) values. This analysis demonstrates how statistical principles guide practical time series modeling, moving from stationarity testing (Day 4-5) to parameter identification (Day 6) and ultimately to model fitting and forecasting.
+ACF and PACF correlograms reveal whether a time series has temporal dependencies. In this case, **gold prices show no autocorrelation structure — they are white noise**. This finding is significant: it confirms that daily gold price changes are random and unpredictable based on historical patterns. 
+
+For forecasting gold prices, the optimal model is ARIMA(0,1,0) — a simple random walk. This demonstrates an important lesson in time series analysis: **sometimes the simplest model is the best one**. Rather than forcing complex ARIMA structures onto data, we let the data guide us to the appropriate model, which in this case is "no model at all" in the traditional sense — just random fluctuations around a trend.
