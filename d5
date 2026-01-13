@@ -1,9 +1,0 @@
-        {
-            day: "5",
-            name: 'ADF Test & Differencing',
-            description: 'Augmented Dickey-Fuller test implementation, interpreting p-values, applying differencing to achieve stationarity in gold price data.',
-            dataset: 'Yahoo Finance Gold (GLD)',
-            datasetUrl: 'https://finance.yahoo.com/quote/GLD/',
-            githubUrl: 'https://github.com/tadstech/30-days-of-tsa/tree/main/day5',
-            status: 'completed',
-        },

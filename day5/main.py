@@ -87,7 +87,6 @@ fig.update_layout(
 fig.update_xaxes(title_text="Date", row=2, col=1)
 fig.update_yaxes(title_text="Price (USD)", row=1, col=1)
 fig.update_yaxes(title_text="Price Change (USD)", row=2, col=1)
-
 fig.show()
 
 # Run ADF test on differenced prices

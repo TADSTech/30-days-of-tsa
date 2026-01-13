@@ -109,6 +109,26 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Established ARIMA model readiness with d=1 parameter
 - Created reproducible pipeline for data preprocessing
 
+### Day 6: Autocorrelation Analysis (ACF & PACF)
+
+**Status**: ✓ Complete
+
+**Objective**: Analyze autocorrelation patterns to identify optimal ARIMA parameters
+
+**Key Deliverables**:
+- ACF and PACF conceptual explanation (MA vs AR order identification)
+- Side-by-side correlograms for 40 lags with confidence intervals
+- Visual interpretation guide for cutoff vs decay patterns
+- Systematic parameter identification methodology
+- Recommended ARIMA model candidates with justifications
+
+**Outcomes**:
+- Successfully generated ACF/PACF visualizations for differenced gold prices
+- Identified statistical significance thresholds and patterns
+- Established data-driven approach to selecting p and q parameters
+- Created framework for comparing multiple ARIMA candidates
+- Ready for model fitting and comparison phase
+
 ## Goals
 
 - Understand the basics of Time Series data
@@ -128,4 +148,4 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 ## Progress
 
-Current Day: 5/30
+Current Day: 6/30
