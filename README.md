@@ -120,14 +120,49 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Side-by-side correlograms for 40 lags with confidence intervals
 - Visual interpretation guide for cutoff vs decay patterns
 - Systematic parameter identification methodology
-- Recommended ARIMA model candidates with justifications
+- White noise detection and ARIMA(0,1,0) identification
 
 **Outcomes**:
 - Successfully generated ACF/PACF visualizations for differenced gold prices
-- Identified statistical significance thresholds and patterns
-- Established data-driven approach to selecting p and q parameters
-- Created framework for comparing multiple ARIMA candidates
-- Ready for model fitting and comparison phase
+- Discovered white noise behavior in differenced gold prices (no significant autocorrelations)
+- Identified ARIMA(0,1,0) random walk model as optimal for gold price data
+- Validated Efficient Market Hypothesis—gold price changes are random
+- Ready for ARIMA fitting, forecasting, and model validation
+
+### Day 7: Exploratory Data Analysis & Gold-Themed Dashboard
+
+**Status**: ✓ Complete
+
+**Objective**: Conduct comprehensive EDA and create professional visualizations
+
+**Key Deliverables**:
+- Dataset overview and statistical summary (2,515 daily observations)
+- Daily returns and volatility metrics analysis
+- Seasonal pattern identification by month, quarter, and year
+- Interactive 6-panel gold-themed dashboard using Plotly
+- Cumulative returns and moving average analysis
+
+**Dashboard Components**:
+1. Price trend over time (304% gain from 2016-2025)
+2. Price distribution histogram (right-skewed, μ=$1,857)
+3. Daily returns distribution (μ=+0.059%, σ=0.933%)
+4. Monthly volatility tracking (14.82% annualized)
+5. Cumulative returns visualization
+6. 50-day and 200-day moving averages
+
+**Key Findings**:
+- Gold shows strong upward trend with acceleration post-2020
+- Positive daily return bias: 52.6% of days are up (mean +0.0591%)
+- Seasonal strength: Q4 highest ($1,957 avg), Q1 lowest ($1,761 avg)
+- Yearly acceleration: 2025 showed +43% gain vs 2016-2019 stability
+- Volatility spikes during market stress periods (2020, 2023)
+
+**Outcomes**:
+- Comprehensive visual understanding of gold price dynamics
+- Professional gold-themed dashboard suitable for presentations
+- Temporal pattern insights for business decisions
+- Validation of data quality and preprocessing effectiveness
+- Ready to build and evaluate forecasting models
 
 ## Goals
 
