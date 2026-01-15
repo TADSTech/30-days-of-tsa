@@ -164,6 +164,38 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Validation of data quality and preprocessing effectiveness
 - Ready to build and evaluate forecasting models
 
+### Day 8: Moving Average Smoothing
+
+**Status**: ✓ Complete
+
+**Objective**: Master three moving average techniques and understand lag-smoothing trade-offs
+
+**Key Deliverables**:
+- Simple Moving Average (SMA) implementation and analysis
+- Weighted Moving Average (WMA) with linear weighting scheme
+- Exponential Moving Average (EMA) with optimal smoothing factors
+- Quantitative lag analysis (SMA lag ≈ window/2, EMA lag ≈ window×0.15)
+- Smoothing effectiveness metrics (volatility reduction analysis)
+- Window size effects on both lag and smoothing
+- Practical trading strategy guidelines
+
+**Key Findings**:
+- **Lag Comparison (window=20)**: SMA 10 periods, WMA 7 periods, EMA 3 periods
+- **Smoothing Effectiveness**: SMA 30.8%, WMA 28.6%, EMA 23.8% volatility reduction
+- **Responsiveness**: EMA closest to price (distance $22.01), SMA farthest ($26.45)
+- **Trade-off Pattern**: Larger windows increase both lag AND smoothing proportionally
+- **Optimal Use Cases**:
+  - SMA: Long-term trends (50-200 periods, 25-100 day lag acceptable)
+  - WMA: Balanced analysis (15-30 periods, 7-15 day lag)
+  - EMA: Short-term signals (5-21 periods, 1-10 day lag)
+
+**Outcomes**:
+- Deep understanding of moving average mechanics and trade-offs
+- Ability to select appropriate smoothing technique for use case
+- Quantitative metrics for evaluating smoothing quality
+- Foundation for building trading signal strategies
+- Ready for trend detection and crossover analysis
+
 ## Goals
 
 - Understand the basics of Time Series data
