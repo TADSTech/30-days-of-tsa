@@ -11,6 +11,12 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - [Day 1: Time Series Fundamentals](./day1/)
 - [Day 2: Time Series Data from APIs](./day2/)
 - [Day 3: Visualizing Time Series Data](./day3/)
+- [Day 4: Stationarity Concepts](./day4/)
+- [Day 5: ADF Test & Differencing](./day5/)
+- [Day 6: Autocorrelation Analysis (ACF & PACF)](./day6/)
+- [Day 7: Exploratory Data Analysis & Gold-Themed Dashboard](./day7/)
+- [Day 8: Moving Average Smoothing](./day8/)
+- [Day 9: Simple Exponential Smoothing (SES)](./day9/)
 
 ## Project Details
 
@@ -195,6 +201,49 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Quantitative metrics for evaluating smoothing quality
 - Foundation for building trading signal strategies
 - Ready for trend detection and crossover analysis
+
+### Day 9: Simple Exponential Smoothing (SES)
+
+**Status**: ✓ Complete
+
+**Objective**: Implement Simple Exponential Smoothing for forecasting stationary time series
+
+**Key Deliverables**:
+- Manual SES implementation demonstrating core algorithm
+- Statsmodels integration with automatic alpha optimization
+- Alpha parameter sensitivity analysis (0.1 to 0.9)
+- Train-test split evaluation (80/20, 2011/503 observations)
+- Forecast generation with performance metrics (MAE, RMSE, MAPE)
+- Residual diagnostics and white noise validation
+- Multi-alpha comparison visualizations
+
+**Key Findings**:
+- **Optimal Alpha**: α ≈ 0.18 (automatically optimized by statsmodels)
+  - 18% weight on most recent observation
+  - 82% weight on historical smoothed values
+- **Weight Decay**: Exponential pattern (18% → 14.8% → 12.1% → 9.9% → 8.1%)
+- **Alpha Effects**: Lower alpha = heavier smoothing, higher alpha = more responsive
+- **Forecast Limitation**: SES produces flat forecasts (all future values identical)
+- **Performance**: Successfully beat naive baseline forecast
+
+**Mathematical Foundation**:
+- Core formula: ŷ(t+1) = α·y(t) + (1-α)·ŷ(t)
+- Recursive expansion shows exponential weighting of past observations
+- Weight for lag k: α(1-α)^k
+
+**When to Use SES**:
+- ✅ Stationary data (no trend, no seasonality)
+- ✅ Short-term forecasting (1-10 steps ahead)
+- ✅ Simple baseline model
+- ❌ Data with trend (use Holt's method)
+- ❌ Data with seasonality (use Holt-Winters)
+
+**Outcomes**:
+- Complete implementation of SES methodology
+- Understanding of alpha parameter's role in smoothing/responsiveness trade-off
+- Validated on differenced gold prices (stationary from Day 6)
+- Foundation for Holt's and Holt-Winters extensions
+- Ready for trend and seasonal components
 
 ## Goals
 
