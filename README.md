@@ -17,6 +17,8 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - [Day 7: Exploratory Data Analysis & Gold-Themed Dashboard](./day7/)
 - [Day 8: Moving Average Smoothing](./day8/)
 - [Day 9: Simple Exponential Smoothing (SES)](./day9/)
+- [Day 10: Holt's Linear Trend](./day10/)
+- [Day 11: Holt-Winters' Seasonal](./day11/)
 
 ## Project Details
 
@@ -245,6 +247,96 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 - Foundation for Holt's and Holt-Winters extensions
 - Ready for trend and seasonal components
 
+### Day 10: Holt's Linear Trend Method
+
+**Status**: ✓ Complete
+
+**Objective**: Implement double exponential smoothing for trending data
+
+**Key Deliverables**:
+- Manual Holt's implementation with level and trend components
+- Statsmodels integration with automatic alpha/beta optimization
+- Alpha-beta grid search for parameter sensitivity analysis
+- Train-test split evaluation (80/20 split)
+- Forecast generation with trending predictions
+- Performance metrics (MAE, RMSE, MAPE) comparison
+- Level and trend component visualization
+- Multi-parameter configuration comparison
+
+**Key Findings**:
+- **Optimal Parameters**: α ≈ 0.30-0.40, β ≈ 0.05-0.15 (varies by series)
+- **Trending Forecasts**: Unlike SES, produces non-flat forecasts using formula ŷ(t+h) = ℓ(t) + h·b(t)
+- **Final Components**: Level and trend extracted and analyzed
+- **Trend Direction**: Captured and extrapolated into forecast period
+- **Performance**: Significant improvement over naive baseline
+
+**Mathematical Foundation**:
+- Level: ℓ(t) = α·y(t) + (1-α)·(ℓ(t-1) + b(t-1))
+- Trend: b(t) = β·(ℓ(t) - ℓ(t-1)) + (1-β)·b(t-1)
+- Forecast: ŷ(t+h) = ℓ(t) + h·b(t)
+
+**When to Use Holt's**:
+- ✅ Data has clear trend (upward or downward)
+- ✅ No seasonality present
+- ✅ Need trending forecasts
+- ❌ Data is stationary (use SES)
+- ❌ Data has seasonality (use Holt-Winters)
+
+**Outcomes**:
+- Complete understanding of level-trend decomposition
+- Ability to select optimal alpha and beta parameters
+- Trending forecasts for 5-20 step horizon
+- Foundation for seasonal extensions
+- Ready for complete Holt-Winters model
+
+### Day 11: Holt-Winters' Seasonal Method
+
+**Status**: ✓ Complete
+
+**Objective**: Implement triple exponential smoothing for data with trend and seasonality
+
+**Key Deliverables**:
+- Seasonal decomposition analysis (trend, seasonal, residual)
+- Additive Holt-Winters implementation
+- Multiplicative Holt-Winters implementation
+- Parameter optimization (alpha, beta, gamma)
+- Train-test split evaluation on monthly aggregated data
+- Side-by-side additive vs multiplicative comparison
+- Component visualization (level, trend, seasonal)
+- Residual diagnostics for both models
+- Seasonal parameter sensitivity analysis
+
+**Key Findings**:
+- **Additive vs Multiplicative**: Compared on gold price data
+  - Additive: Use when seasonal magnitude constant
+  - Multiplicative: Use when seasonal grows with trend
+- **Optimal Parameters**: α ≈ 0.2-0.3, β ≈ 0.05-0.1, γ ≈ 0.05-0.2 (typical)
+- **Three Components**: Level, trend, and seasonal all captured
+- **Seasonal Period**: 12 months for annual seasonality in monthly data
+- **Performance**: Handles both trend and seasonal patterns
+
+**Mathematical Foundation**:
+- Additive: ŷ(t+h) = ℓ(t) + h·b(t) + s(t-m+h)
+- Multiplicative: ŷ(t+h) = (ℓ(t) + h·b(t)) × s(t-m+h)
+- Where m = seasonal period (12 for monthly)
+
+**When to Use**:
+- ✅ Data has both trend AND seasonality
+- ✅ Seasonal patterns repeat with fixed period
+- ✅ Need 3-12 month ahead forecasts
+- ✅ Additive: Constant seasonal magnitude
+- ✅ Multiplicative: Growing seasonal magnitude
+- ❌ No seasonality (use Holt's)
+- ❌ Changing seasonal patterns over time
+
+**Outcomes**:
+- Complete implementation of additive model
+- Complete implementation of multiplicative model
+- Ability to choose between seasonal approaches
+- Comprehensive three-component decomposition
+- Forecasts capturing trend and seasonal patterns
+- Foundation for more advanced methods
+
 ## Goals
 
 - Understand the basics of Time Series data
@@ -264,4 +356,9 @@ This project focuses on building and enhancing Time Series Analysis skills throu
 
 ## Progress
 
-Current Day: 6/30
+Current Day: 11/30
+
+**Exponential Smoothing Family Completed** (Days 9-11):
+- Day 9: SES (Simple) - Level only
+- Day 10: Holt's (Double) - Level + Trend
+- Day 11: Holt-Winters (Triple) - Level + Trend + Seasonal
